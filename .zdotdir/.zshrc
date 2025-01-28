@@ -9,6 +9,8 @@ fi
 # Zsh configuration
 # -----------------
 
+test -r "${ZDOTDIR}/.zshrc.local" && . "$_"
+
 fpath=(
   "${HOME}/.local/share/zsh/functions/Completion"
   $fpath

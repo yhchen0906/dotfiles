@@ -1,3 +1,4 @@
+*.local
 .ssh/
 .zdotdir/.zcompdump
 .zdotdir/.zcompdump.*

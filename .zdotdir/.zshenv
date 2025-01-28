@@ -2,6 +2,8 @@ umask 022
 
 ZDOTDIR=${HOME}/.zdotdir
 
+test -r "${ZDOTDIR}/.zshenv.local" && . "$_"
+
 skip_global_compinit=1
 google_zsh_flysolo=1
 

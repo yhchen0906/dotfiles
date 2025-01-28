@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zdotdir/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # -----------------
 # Zsh configuration
 # -----------------
@@ -124,3 +131,6 @@ unset key
 
 # Report CWD using OSC 1337 protocol
 precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }
+
+# To customize prompt, run `p10k configure` or edit ~/.zdotdir/.p10k.zsh.
+[[ ! -f ~/.zdotdir/.p10k.zsh ]] || source ~/.zdotdir/.p10k.zsh

@@ -9,6 +9,11 @@ fi
 # Zsh configuration
 # -----------------
 
+fpath=(
+  "${HOME}/.local/share/zsh/functions/Completion"
+  $fpath
+)
+
 #
 # History
 #

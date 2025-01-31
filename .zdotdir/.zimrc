@@ -1,13 +1,14 @@
 zmodule archive
-zmodule direnv
 zmodule environment
-zmodule exa
-zmodule fzf
 zmodule git
 zmodule input
 zmodule ssh
 zmodule termtitle
 zmodule utility
+
+zmodule direnv
+zmodule exa
+zmodule fzf
 zmodule kiesman99/zim-zoxide
 
 zmodule esc/conda-zsh-completion

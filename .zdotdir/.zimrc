@@ -9,11 +9,12 @@ zmodule utility
 zmodule direnv
 zmodule exa
 zmodule fzf
-zmodule kiesman99/zim-zoxide
 
 zmodule esc/conda-zsh-completion
 zmodule zsh-users/zsh-completions
 zmodule completion
+
+zmodule kiesman99/zim-zoxide
 
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search

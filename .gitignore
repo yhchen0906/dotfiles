@@ -1,6 +1,5 @@
 *.local
 .ssh/
-.zdotdir/.zcompdump
-.zdotdir/.zcompdump.*
+.zdotdir/.zcomp*
 .zdotdir/.zhistory
 .zdotdir/.zim/

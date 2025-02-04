@@ -9,8 +9,6 @@ fi
 # Zsh configuration
 # -----------------
 
-test -r "${ZDOTDIR}/.zshrc.local" && source ${_}
-
 test -d "${HOME}/.local/share/zsh/functions/Completion" && fpath=(${_} ${fpath})
 
 #
@@ -135,6 +133,8 @@ unset key
 
 # Report CWD using OSC 1337 protocol
 precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }
+
+test -r "${ZDOTDIR}/.zshrc.local" && source ${_}
 
 # To customize prompt, run `p10k configure` or edit ~/.zdotdir/.p10k.zsh.
 [[ ! -f ~/.zdotdir/.p10k.zsh ]] || source ~/.zdotdir/.p10k.zsh

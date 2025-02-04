@@ -10,8 +10,5 @@ google_zsh_flysolo=1
 (( ${+commands[vim]} )) && export VISUAL=vim EDITOR=vim
 (( ${+commands[dircolors]} )) && source <(dircolors -b)
 
-path=(
-  "${HOME}/bin"
-  "${HOME}/.local/bin"
-  $path
-)
+test -d "${HOME}/bin" && path=(${_} ${path})
+test -d "${HOME}/.local/bin" && path=(${_} ${path})

@@ -9,9 +9,9 @@ fi
 # Zsh configuration
 # -----------------
 
-test -r "${ZDOTDIR}/.zshrc.local" && . "$_"
+test -r "${ZDOTDIR}/.zshrc.local" && . ${_}
 
-test -d "${HOME}/.local/share/zsh/functions/Completion" && fpath=("$_" ${fpath})
+test -d "${HOME}/.local/share/zsh/functions/Completion" && fpath=(${_} ${fpath})
 
 #
 # History

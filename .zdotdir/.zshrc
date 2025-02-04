@@ -9,7 +9,7 @@ fi
 # Zsh configuration
 # -----------------
 
-test -r "${ZDOTDIR}/.zshrc.local" && . ${_}
+test -r "${ZDOTDIR}/.zshrc.local" && source ${_}
 
 test -d "${HOME}/.local/share/zsh/functions/Completion" && fpath=(${_} ${fpath})
 

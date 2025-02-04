@@ -9,6 +9,8 @@ fi
 # Zsh configuration
 # -----------------
 
+HISTFILE=${ZDOTDIR}/.zsh_history
+
 test -d "${HOME}/.local/share/zsh/functions/Completion" && fpath=(${_} ${fpath})
 
 #

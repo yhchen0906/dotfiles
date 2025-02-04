@@ -1,5 +1,5 @@
 *.local
 .ssh/
 .zdotdir/.zcomp*
-.zdotdir/.zhistory
 .zdotdir/.zim/
+.zdotdir/.zsh_history

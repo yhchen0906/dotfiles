@@ -11,10 +11,7 @@ fi
 
 test -r "${ZDOTDIR}/.zshrc.local" && . "$_"
 
-fpath=(
-  "${HOME}/.local/share/zsh/functions/Completion"
-  $fpath
-)
+test -d "${HOME}/.local/share/zsh/functions/Completion" && fpath=("$_" ${fpath})
 
 #
 # History

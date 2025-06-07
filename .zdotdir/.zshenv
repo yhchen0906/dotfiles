@@ -1,5 +1,3 @@
-umask 022
-
 ZDOTDIR=${HOME}/.zdotdir
 
 test -r "${ZDOTDIR}/.zshenv.local" && source ${_}

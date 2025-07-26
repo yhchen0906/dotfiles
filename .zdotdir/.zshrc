@@ -138,5 +138,8 @@ precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }
 
 test -r "${ZDOTDIR}/.zshrc.local" && source ${_}
 
+# NVM
+test -s "${NVM_DIR}/nvm.sh" && . "${_}"
+
 # To customize prompt, run `p10k configure` or edit ~/.zdotdir/.p10k.zsh.
 [[ ! -f ~/.zdotdir/.p10k.zsh ]] || source ~/.zdotdir/.p10k.zsh

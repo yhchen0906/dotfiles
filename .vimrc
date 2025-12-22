@@ -3,6 +3,9 @@ syntax enable
 colorscheme elflord
 highlight LineNr ctermfg=gray
 
+" exclude clipboard access to prevent X11 usage
+set clipboard=exclude:.*
+
 set mouse=""
 set nowrap
 set autoindent smartindent

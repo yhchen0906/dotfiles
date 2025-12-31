@@ -1,6 +1,7 @@
 *.local
 .ssh/
+.tmux/plugins/*
+.vim/bundle/*
 .zdotdir/.zcomp*
 .zdotdir/.zim/
 .zdotdir/.zsh_history
-.tmux/plugins/*

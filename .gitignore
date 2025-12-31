@@ -3,3 +3,4 @@
 .zdotdir/.zcomp*
 .zdotdir/.zim/
 .zdotdir/.zsh_history
+.tmux/plugins/*

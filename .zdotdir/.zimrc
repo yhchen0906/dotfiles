@@ -16,6 +16,7 @@ zmodule completion
 
 zmodule kiesman99/zim-zoxide
 
+zmodule dracula/zsh-syntax-highlighting --name dracula-zsh-syntax-highlighting --source zsh-syntax-highlighting.sh
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
 zmodule zsh-users/zsh-autosuggestions

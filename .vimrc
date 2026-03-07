@@ -14,11 +14,14 @@ Plugin 'dracula/vim', { 'name': 'dracula' }
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-set termguicolors
+if &term =~ '256color'
+  set t_ut=
+  set termguicolors
+endif
 
 syntax enable
 colorscheme dracula
-highlight LineNr guifg=gray
+highlight LineNr guifg=gray ctermfg=gray
 
 " exclude clipboard access to prevent X11 usage
 set clipboard=exclude:.*

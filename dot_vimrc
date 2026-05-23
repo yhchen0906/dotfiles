@@ -1,0 +1,21 @@
+if &term =~ '256color'
+  set t_ut=
+  set termguicolors
+endif
+
+syntax enable
+highlight LineNr guifg=gray ctermfg=gray
+
+set mouse=""
+set nowrap
+set autoindent smartindent
+
+set ruler number
+set incsearch hlsearch
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+set fileencodings=utf8,big5,gbk,latin1

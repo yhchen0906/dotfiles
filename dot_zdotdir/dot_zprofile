@@ -1,0 +1,3 @@
+umask 022
+
+test -r "${ZDOTDIR}/.zprofile.local" && source "${_}"

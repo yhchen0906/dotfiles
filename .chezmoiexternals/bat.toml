@@ -1,0 +1,21 @@
+{{- $arch := .chezmoi.arch -}}
+{{- if eq $arch "arm64" -}}
+  {{- $arch = "aarch64" -}}
+{{- else if eq $arch "amd64" -}}
+  {{- $arch = "x86_64" -}}
+{{- end -}}
+
+{{- $url := gitHubLatestReleaseAssetURL "sharkdp/bat" (printf "*-%s-*-%s*.tar.gz" $arch .chezmoi.os) | quote -}}
+
+[".local/bin/bat"]
+type = "archive-file"
+url = {{ $url }}
+executable = true
+stripComponents = 1
+path = "bat"
+
+[".local/share/zsh/functions/Completion/_bat"]
+type = "archive-file"
+url = {{ $url }}
+stripComponents = 1
+path = "autocomplete/bat.zsh"

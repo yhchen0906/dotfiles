@@ -1,0 +1,5 @@
+[".local/bin/fzf"]
+type = "archive-file"
+url = {{ gitHubLatestReleaseAssetURL "junegunn/fzf" (printf "*-%s_%s.tar.gz" .chezmoi.os .chezmoi.arch) | quote }}
+executable = true
+path = "fzf"

@@ -1,0 +1,21 @@
+{{- $arch := .chezmoi.arch -}}
+{{- if eq $arch "arm64" -}}
+  {{- $arch = "aarch64" -}}
+{{- else if eq $arch "amd64" -}}
+  {{- $arch = "x86_64" -}}
+{{- end -}}
+
+{{- $url := gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" (printf "*%s-*-%s*.tar.gz" $arch .chezmoi.os) | quote -}}
+
+[".local/bin/rg"]
+type = "archive-file"
+url = {{ $url }}
+executable = true
+stripComponents = 1
+path = "rg"
+
+[".local/share/zsh/functions/Completion/_rg"]
+type = "archive-file"
+url = {{ $url }}
+stripComponents = 1
+path = "complete/_rg"

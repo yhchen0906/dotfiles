@@ -22,4 +22,10 @@ url = {{ $url }}
 stripComponents = 1
 path = "autocomplete/bat.zsh"
 
+[".local/share/man/man1/bat.1"]
+type = "archive-file"
+url = {{ $url }}
+stripComponents = 1
+path = "bat.1"
+
 {{- end -}}

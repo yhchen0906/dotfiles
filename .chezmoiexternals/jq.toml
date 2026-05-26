@@ -5,4 +5,10 @@ type = "file"
 url = "https://github.com/jqlang/jq/releases/latest/download/jq-linux-{{ .chezmoi.arch }}"
 executable = true
 
+[".local/share/man/man1/jq.1"]
+type = "archive-file"
+url = {{ gitHubLatestReleaseAssetURL "jqlang/jq" "jq-*.tar.gz" | quote }}
+stripComponents = 1
+path = "jq.1"
+
 {{- end -}}

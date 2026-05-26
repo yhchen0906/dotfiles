@@ -22,4 +22,10 @@ url = {{ $url }}
 stripComponents = 1
 path = "complete/_rg"
 
+[".local/share/man/man1/rg.1"]
+type = "archive-file"
+url = {{ $url }}
+stripComponents = 1
+path = "doc/rg.1"
+
 {{- end -}}

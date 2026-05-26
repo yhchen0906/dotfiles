@@ -1,0 +1,31 @@
+{{- if eq .chezmoi.os "linux" -}}
+
+{{- $arch := .chezmoi.arch -}}
+{{- if eq $arch "arm64" -}}
+  {{- $arch = "aarch64" -}}
+{{- else if eq $arch "amd64" -}}
+  {{- $arch = "x86_64" -}}
+{{- end -}}
+
+{{- $url := gitHubLatestReleaseAssetURL "sharkdp/fd" (printf "*-%s-*-linux-musl.tar.gz" $arch) | quote -}}
+
+[".local/bin/fd"]
+type = "archive-file"
+url = {{ $url }}
+executable = true
+stripComponents = 1
+path = "fd"
+
+[".local/share/zsh/functions/Completion/_fd"]
+type = "archive-file"
+url = {{ $url }}
+stripComponents = 1
+path = "autocomplete/_fd"
+
+[".local/share/man/man1/fd.1"]
+type = "archive-file"
+url = {{ $url }}
+stripComponents = 1
+path = "fd.1"
+
+{{- end -}}

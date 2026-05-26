@@ -1,0 +1,28 @@
+{{- if eq .chezmoi.os "linux" -}}
+
+{{- $arch := .chezmoi.arch -}}
+{{- if eq $arch "arm64" -}}
+  {{- $arch = "aarch64" -}}
+{{- else if eq $arch "amd64" -}}
+  {{- $arch = "x86_64" -}}
+{{- end -}}
+
+[".local/bin/eza"]
+type = "archive-file"
+url = {{ gitHubLatestReleaseAssetURL "eza-community/eza" (printf "*%s-*-linux-gnu.tar.gz" $arch) | quote }}
+executable = true
+path = "./eza"
+
+[".local/share/zsh/functions/Completion/_eza"]
+type = "archive-file"
+url = {{ gitHubLatestReleaseAssetURL "eza-community/eza" "completions-*.tar.gz" | quote }}
+stripComponents = 3
+path = "_eza"
+
+[".local/share/man/man1/eza.1"]
+type = "archive-file"
+url = {{ gitHubLatestReleaseAssetURL "eza-community/eza" "man-*.tar.gz" | quote }}
+stripComponents = 3
+path = "eza.1"
+
+{{- end -}}

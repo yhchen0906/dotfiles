@@ -1,9 +1,8 @@
-{{- $os := .chezmoi.os -}}
-{{- if eq $os "darwin" -}}
-  {{- $os = "macos" -}}
-{{- end -}}
+{{- if eq .chezmoi.os "linux" -}}
 
 [".local/bin/jq"]
 type = "file"
-url = "https://github.com/jqlang/jq/releases/latest/download/jq-{{ $os }}-{{ .chezmoi.arch }}"
+url = "https://github.com/jqlang/jq/releases/latest/download/jq-linux-{{ .chezmoi.arch }}"
 executable = true
+
+{{- end -}}

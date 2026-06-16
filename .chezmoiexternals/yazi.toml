@@ -1,0 +1,38 @@
+{{- if eq .chezmoi.os "linux" -}}
+
+{{- $arch := .chezmoi.arch -}}
+{{- if eq $arch "arm64" -}}
+  {{- $arch = "aarch64" -}}
+{{- else if eq $arch "amd64" -}}
+  {{- $arch = "x86_64" -}}
+{{- end -}}
+
+{{- $url := gitHubLatestReleaseAssetURL "sxyazi/yazi" (printf "*-%s-*-linux-musl.zip" $arch) | quote -}}
+
+[".local/bin/ya"]
+type = "archive-file"
+url = {{ $url }}
+executable = true
+stripComponents = 1
+path = "ya"
+
+[".local/bin/yazi"]
+type = "archive-file"
+url = {{ $url }}
+executable = true
+stripComponents = 1
+path = "yazi"
+
+[".local/share/zsh/functions/Completion/_ya"]
+type = "archive-file"
+url = {{ $url }}
+stripComponents = 1
+path = "completions/_ya"
+
+[".local/share/zsh/functions/Completion/_yazi"]
+type = "archive-file"
+url = {{ $url }}
+stripComponents = 1
+path = "completions/_yazi"
+
+{{- end -}}

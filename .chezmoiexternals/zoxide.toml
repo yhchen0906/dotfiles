@@ -1,0 +1,29 @@
+{{- if eq .chezmoi.os "linux" -}}
+
+{{- $arch := .chezmoi.arch -}}
+{{- if eq $arch "arm64" -}}
+  {{- $arch = "aarch64" -}}
+{{- else if eq $arch "amd64" -}}
+  {{- $arch = "x86_64" -}}
+{{- end -}}
+
+{{- $url := gitHubLatestReleaseAssetURL "ajeetdsouza/zoxide" (printf "*-%s-*-linux-musl.tar.gz" $arch) | quote -}}
+
+[".local/bin/zoxide"]
+type = "archive-file"
+url = {{ $url }}
+executable = true
+path = "zoxide"
+
+[".local/share/zsh/functions/Completion/_zoxide"]
+type = "archive-file"
+url = {{ $url }}
+path = "completions/_zoxide"
+
+[".local/share/man/man1"]
+type = "archive"
+url = {{ $url }}
+stripComponents = 2
+include = ["man/man1/*"]
+
+{{- end -}}

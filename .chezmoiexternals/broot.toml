@@ -1,0 +1,33 @@
+{{- if eq .chezmoi.os "linux" -}}
+
+{{- $arch := .chezmoi.arch -}}
+{{- if eq $arch "arm64" -}}
+  {{- $arch = "aarch64" -}}
+{{- else if eq $arch "amd64" -}}
+  {{- $arch = "x86_64" -}}
+{{- end -}}
+
+{{- $url := gitHubLatestReleaseAssetURL "Canop/broot" "broot_*.zip" | quote -}}
+
+[".local/bin/broot"]
+type = "archive-file"
+url = {{ $url }}
+path = {{ printf "%s-unknown-linux-musl/broot" $arch | quote }}
+executable = true
+
+[".local/share/zsh/functions/Completion/_br"]
+type = "archive-file"
+url = {{ $url }}
+path = "completion/_br"
+
+[".local/share/zsh/functions/Completion/_broot"]
+type = "archive-file"
+url = {{ $url }}
+path = "completion/_broot"
+
+[".local/share/man/man1/broot.1"]
+type = "archive-file"
+url = {{ $url }}
+path = "broot.1"
+
+{{- end -}}

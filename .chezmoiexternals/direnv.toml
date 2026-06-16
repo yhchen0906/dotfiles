@@ -1,0 +1,14 @@
+{{- if eq .chezmoi.os "linux" -}}
+
+[".local/bin/direnv"]
+type = "file"
+url = {{ gitHubLatestReleaseAssetURL "direnv/direnv" (printf "direnv.linux-%s" .chezmoi.arch) | quote }}
+executable = true
+
+[".local/share/man/man1"]
+type = "archive"
+url = {{ (gitHubLatestRelease "direnv/direnv").TarballURL | quote }}
+stripComponents = 2
+include = ["*/man/*.1"]
+
+{{- end -}}

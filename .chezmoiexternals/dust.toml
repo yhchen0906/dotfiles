@@ -1,0 +1,31 @@
+{{- if eq .chezmoi.os "linux" -}}
+
+{{- $arch := .chezmoi.arch -}}
+{{- if eq $arch "arm64" -}}
+  {{- $arch = "aarch64" -}}
+{{- else if eq $arch "amd64" -}}
+  {{- $arch = "x86_64" -}}
+{{- end -}}
+
+{{- $tarballUrl := (gitHubLatestRelease "bootandy/dust").TarballURL | quote -}}
+
+[".local/bin/dust"]
+type = "archive-file"
+url = {{ gitHubLatestReleaseAssetURL "bootandy/dust" (printf "*-%s-*-linux-musl.tar.gz" $arch) | quote }}
+executable = true
+stripComponents = 1
+path = "dust"
+
+[".local/share/zsh/functions/Completion/_dust"]
+type = "archive-file"
+url = {{ $tarballUrl }}
+stripComponents = 1
+path = "completions/_dust"
+
+[".local/share/man/man1/dust.1"]
+type = "archive-file"
+url = {{ $tarballUrl }}
+stripComponents = 1
+path = "man-page/dust.1"
+
+{{- end -}}

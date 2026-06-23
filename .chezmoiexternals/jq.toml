@@ -6,9 +6,9 @@ url = "https://github.com/jqlang/jq/releases/latest/download/jq-linux-{{ .chezmo
 executable = true
 
 [".local/share/man/man1/jq.1"]
-type = "archive-file"
+type = "file"
 url = {{ gitHubLatestReleaseAssetURL "jqlang/jq" "jq-*.tar.gz" | quote }}
-stripComponents = 1
-path = "jq.1"
+filter.command = "tar"
+filter.args = ["zxO", '{{ (gitHubLatestRelease "jqlang/jq").TagName }}/jq.1']
 
 {{- end -}}

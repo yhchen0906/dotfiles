@@ -1,0 +1,21 @@
+{{- if eq .chezmoi.os "linux" -}}
+
+{{- $arch := .chezmoi.arch -}}
+{{- if eq $arch "amd64" -}}
+  {{- $arch = "x86_64" -}}
+{{- end -}}
+
+{{- $url := gitHubLatestReleaseAssetURL "muesli/duf" (printf "*_linux_%s.tar.gz" $arch) | quote -}}
+
+[".local/bin/duf"]
+type = "archive-file"
+url = {{ $url }}
+executable = true
+path = "duf"
+
+[".local/share/man/man1/duf.1"]
+type = "archive-file"
+url = {{ $url }}
+path = "duf.1"
+
+{{- end -}}

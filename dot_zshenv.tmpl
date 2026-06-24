@@ -7,6 +7,3 @@ skip_global_compinit=1
 {{- else if contains "google_zsh_flysolo" (include "/etc/zsh/zshrc") -}}
 google_zsh_flysolo=1
 {{- end }}
-
-test -d "${HOME}/bin" && path=(${_} ${path})
-test -d "${HOME}/.local/bin" && path=(${_} ${path})

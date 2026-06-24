@@ -1,3 +1,5 @@
 umask 022
 
+path=("${HOME}/.local/bin" ${path})
+
 test -r "${ZDOTDIR}/.zprofile.local" && source "${_}"

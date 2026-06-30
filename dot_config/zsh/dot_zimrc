@@ -10,6 +10,8 @@ zmodule direnv
 zmodule exa
 zmodule fzf
 
+zmodule yhchen0906/broot
+
 zmodule zsh-users/zsh-completions
 zmodule completion
 

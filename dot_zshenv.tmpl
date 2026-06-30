@@ -2,8 +2,10 @@ ZDOTDIR="${HOME}/.config/zsh"
 
 test -r "${ZDOTDIR}/.zshenv.local" && source ${_}
 
-{{ if contains "skip_global_compinit" (include "/etc/zsh/zshrc") -}}
+{{ if stat "/etc/zsh/zshrc" -}}
+  {{- if contains "skip_global_compinit" (include "/etc/zsh/zshrc") -}}
 skip_global_compinit=1
-{{- else if contains "google_zsh_flysolo" (include "/etc/zsh/zshrc") -}}
+  {{- else if contains "google_zsh_flysolo" (include "/etc/zsh/zshrc") -}}
 google_zsh_flysolo=1
+  {{- end -}}
 {{- end }}

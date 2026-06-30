@@ -1,2 +1,2 @@
 #!/bin/sh
-broot --set-install-state installed
+~/.local/bin/broot --set-install-state installed

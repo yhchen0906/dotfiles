@@ -1,2 +1,3 @@
 #!/bin/sh
-~/.local/bin/broot --set-install-state installed
+PATH="${HOME}/.local/bin:${PATH}"
+broot --set-install-state installed
